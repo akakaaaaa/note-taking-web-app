@@ -1,0 +1,158 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+*.log
+*.log.*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Dependency directories
+bower_components/
+jspm_packages/
+
+# Build directories
+dist/
+build/
+out/
+public/
+coverage/
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+*.bak
+*.swm
+
+# IDEs and text editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+*.tmproj
+
+# macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Coverage directory for tools like istanbul
+coverage/
+
+# JetBrains IDEs
+.idea/
+
+# VS Code directories
+.vscode/
+
+# npm package locks
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# SASS/SCSS
+.sass-cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js
+.next/
+out/
+.vercel/
+
+# React Native
+ios/Pods/
+android/.gradle/
+android/app/build/
+*.keystore
+
+# Expo
+.expo/
+.expo-shared/
+
+# Angular
+.angular/
+
+# Vue.js
+node_modules/
+dist/
+*.local
+
+# Laravel
+/vendor/
+.env
+Homestead.yaml
+Homestead.json
+npm-debug.log
+public/storage
+storage/*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.log
+*.bak
+*.swp
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Ruby
+*.gem
+*.rbc
+.bundle/
+log/
+tmp/
+config/master.key
+
+# Unity
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# Caches
+.cache/
+
+# React Static Site
+build/
+.cache/
+
+# Gatsby
+public/
+.cache/
+
+# Docker
+*.dockerfile
+Dockerfile*
+docker-compose.yml
+*.dockerignore
