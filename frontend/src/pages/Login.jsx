@@ -1,44 +1,22 @@
-import Card from "../components/Card";
-import { SubmitButton } from "../components/SubmitButton";
+import { Card } from "../components/Card";
 import "./styles/Login.scss";
+import { Form } from "../components/Form";
 
 export const Login = () => {
   return (
-    <Card title="Welcome to Note" subtitle="Please log in to continue">
-      <form>
-        <div className="email-container">
-          <label htmlFor="email">Email Address</label>
-          <input
-            name="email"
-            type="email"
-            placeholder="email@example.com"
-            autoComplete="off"
-            required
-          />
-        </div>
-
-        <div className="password-container">
-          <div className="card-form-inner-container">
-            <label htmlFor="password">Password</label>
-            <a href="" className="card-forgot">
-              Forgot
-            </a>
-          </div>
-          <input type="password" required />
-        </div>
-
-        <SubmitButton type="submit">Login</SubmitButton>
-      </form>
-
-      <div className="card-Oauth-container">
-        <p>Or log in with:</p>
-        <div>Oauth</div>
-      </div>
-
-      <div className="card-signup">
-        <p>No account Yet?</p>
-        <a href="">Sign Up</a>
-      </div>
+    <Card
+      header_title="Welcome to Note"
+      sub_title="Please log in to continue"
+      footer_title="Or log in with:"
+      footer_if="No account yet?"
+      footer_signOrLogin="Sign Up"
+    >
+      <Form
+        label1_title="Email Adress"
+        label2_title="Password"
+        forgot="Forgot"
+        btn_value="Login"
+      ></Form>
     </Card>
   );
 };

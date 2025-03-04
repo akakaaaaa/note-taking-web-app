@@ -1,4 +1,4 @@
-@use "./variables" as *;
+@use "../../styles/variables" as *;
 
 body {
   padding: 0;
@@ -9,7 +9,6 @@ body {
   align-items: center;
   font-family: $font-family-inter;
   height: 100vh;
-  width: 100%;
   color: $neutral-950;
 }
 
