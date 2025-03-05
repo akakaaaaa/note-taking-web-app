@@ -1,0 +1,120 @@
+@use "../../styles/variables" as *;
+
+a {
+  text-decoration: none;
+  font-family: $font-family-inter;
+}
+
+.sidebar {
+  width: 272px;
+
+  border-right: 1px solid $neutral-300;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 16px 12px 16px;
+  background-color: $neutral-0;
+  max-height: 900px;
+  justify-content: start;
+  overflow-y: hidden;
+
+  .sidebar-logo-container {
+    width: 100%;
+  }
+
+  .line {
+    border: 1px solid $neutral-200;
+  }
+
+  .p-wrap {
+    width: 100%;
+    padding: 0px 8px 0px 8px;
+    box-sizing: border-box;
+    color: $neutral-500;
+  }
+
+  .navigation-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .note-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .arrowContainer {
+    opacity: 0%;
+    transition: all 0.3s ease;
+  }
+
+  .homeIcon,
+  .archiveIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .all-notes-container,
+  .archived-notes-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px 10px 12px;
+    gap: 8px;
+    border-radius: $border-radius-8;
+    font-size: $font-size-small;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $neutral-100;
+
+      .arrowContainer {
+        opacity: 100%;
+      }
+
+      .archiveIcon,
+      .homeIcon {
+        filter: brightness(0) saturate(100%) invert(20%) sepia(100%)
+          saturate(5000%) hue-rotate(200deg);
+      }
+    }
+  }
+
+  .all-notes-container a,
+  .archived-notes-container a {
+    flex: 1;
+    color: $neutral-950;
+    line-height: 120%;
+    letter-spacing: -0.2px;
+  }
+
+  .tags-container {
+    max-height: 700px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: $neutral-100;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $neutral-300;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: $neutral-300;
+    }
+  }
+}

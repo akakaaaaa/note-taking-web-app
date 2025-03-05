@@ -1,0 +1,16 @@
+@use "../../styles/variables" as *;
+
+.tag-container {
+  color: $neutral-950;
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px 10px 12px;
+  align-items: center;
+  box-sizing: border-box;
+  height: auto;
+
+  .tag-p {
+    flex: 1;
+  }
+}
