@@ -44,36 +44,6 @@ export const Sidebar = () => {
           <Tag>Tag</Tag>
           <Tag>Tag</Tag>
           <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
         </div>
       </div>
     </div>

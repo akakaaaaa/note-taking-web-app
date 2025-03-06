@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+
+body {
+  background-color: white;
+}
+
+.note {
+  width: 242px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  background-color: $neutral-0;
+  padding: 8px;
+  border-radius: $border-radius-6;
+  gap: 12px;
+  box-sizing: border-box;
+
+  .note-title {
+    font-size: $font-size-base;
+    line-height: 120%;
+    letter-spacing: -0.3px;
+    font-family: $font-family-inter;
+    font-weight: 600;
+  }
+
+  .tag-container {
+    padding: 0;
+    height: min-content;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+
+  .time-p {
+    color: $neutral-700;
+    font-size: $font-size-xsmall;
+  }
+}
+
+.note-active {
+  background-color: $neutral-100;
+}
