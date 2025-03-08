@@ -6,7 +6,7 @@ body {
 
 .note {
   width: 242px;
-  min-height: 110px;
+  height: min-content;
   display: flex;
   flex-direction: column;
   background-color: $neutral-0;
