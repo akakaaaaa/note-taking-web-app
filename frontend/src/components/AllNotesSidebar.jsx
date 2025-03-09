@@ -2,7 +2,7 @@ import "./styles/AllNotesSidebar.scss";
 import { PrimaryButton } from "./PrimaryButton";
 import { Note } from "./Note";
 
-export const AllNotesSidebar = ({ notes }) => {
+export const AllNotesSidebar = ({ notes, selectedNote, onNoteSelect }) => {
   return (
     <div className="allnotes-container">
       <div className="btn-container">
@@ -10,21 +10,17 @@ export const AllNotesSidebar = ({ notes }) => {
       </div>
 
       <div className="notes-container">
-        {notes ? (
-          notes.map((note) => {
-            return (
-              <>
-                <Note
-                  active={note.active}
-                  title={note.title}
-                  tags={note.tags}
-                  note_content={note.note_content}
-                  edited_time={note.edited_time}
-                />
-                <div className="line"></div>
-              </>
-            );
-          })
+        {notes.length > 0 ? (
+          notes.map((note) => (
+            <div
+              className="notewrapper"
+              key={note.id}
+              onClick={() => onNoteSelect(note)}
+            >
+              <Note note={note} isSelected={selectedNote?.id === note.id} />
+              <div className="line"></div>
+            </div>
+          ))
         ) : (
           <p>No notes</p>
         )}

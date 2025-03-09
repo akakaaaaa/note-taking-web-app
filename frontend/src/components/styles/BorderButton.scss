@@ -25,7 +25,7 @@
   &:hover {
     background-color: $neutral-100;
     color: $neutral-600;
-    border: 0px solid transparent;
+    border: 1px solid transparent;
 
     .restoreIcon {
       opacity: 65%;
@@ -34,8 +34,8 @@
   }
 
   &:focus {
-    outline-offset: 1px;
-    outline: 1px solid $neutral-300;
+    outline-offset: 2px;
+    outline: 2px solid $neutral-300;
     border: 1px solid black;
     color: $neutral-950;
     .restoreIcon {

@@ -1,0 +1,74 @@
+@use "../../styles/variables" as *;
+
+body,
+html {
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.homepage {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 272px 300px auto 250px;
+  grid-template-rows: 81px auto;
+  box-sizing: border-box;
+  padding-right: 32px;
+}
+
+.borderBtn {
+  box-sizing: border-box;
+}
+
+/* Sidebar - Left Navigation */
+.sidebar {
+  grid-row: 1 / span 2;
+}
+
+/* Search Bar - Stretches across columns */
+.searchbar {
+  grid-column: 2 / span 3; /* Make it span across the remaining 3 columns */
+  grid-row: 1;
+  box-sizing: border-box;
+}
+
+.header {
+  box-sizing: border-box;
+}
+
+.right-sidebar-container {
+  box-sizing: border-box;
+}
+
+/* All Notes Sidebar */
+.allnotessidebar {
+  grid-column: 2;
+  grid-row: 2;
+  box-sizing: border-box;
+  height: max-content;
+}
+
+/* Note Details - Main Content */
+.notedetails {
+  grid-column: 3;
+  grid-row: 2;
+  box-sizing: border-box;
+  height: min-content;
+}
+
+/* Right Sidebar - Actions/Settings */
+
+.rightsidebar {
+  grid-column: 4; /* Place in the fourth column */
+  grid-row: 2;
+  box-sizing: border-box;
+  height: min-content;
+}

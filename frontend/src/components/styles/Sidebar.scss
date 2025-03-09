@@ -6,8 +6,6 @@ a {
 }
 
 .sidebar {
-  width: 272px;
-
   border-right: 1px solid $neutral-300;
   display: flex;
   flex-direction: column;
@@ -19,7 +17,11 @@ a {
   max-height: 900px;
   justify-content: start;
   overflow-y: hidden;
-  height: 900px;
+  grid-column-start: 1;
+  padding: 20px;
+  max-width: 272px;
+  box-sizing: border-box;
+  height: 778px;
 
   .sidebar-logo-container {
     width: 100%;

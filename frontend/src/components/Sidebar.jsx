@@ -5,7 +5,7 @@ import homeIcon from "../assets/images/icon-home.svg";
 import arrowRightIcon from "../assets/images/icon-chevron-right.svg";
 import { Tag } from "./Tag";
 
-export const Sidebar = () => {
+export const Sidebar = ({ tags }) => {
   return (
     <div className="sidebar">
       <div className="sidebar-logo-container">
@@ -35,15 +35,9 @@ export const Sidebar = () => {
         </div>
 
         <div className="tags-container">
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
-          <Tag>Tag</Tag>
+          {tags.map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
         </div>
       </div>
     </div>

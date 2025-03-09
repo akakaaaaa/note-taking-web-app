@@ -4,11 +4,12 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 0px 32px 0px 32px;
+  padding: 0px 0px 0px 32px;
   height: 81px;
   align-items: center;
   background-color: $neutral-0;
   border-bottom: 1px solid $neutral-300;
+  box-sizing: border-box;
 
   .tablet-icon {
     display: none;
@@ -65,6 +66,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .search-text-tablet {
+    display: none;
   }
 }
 

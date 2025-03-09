@@ -1,0 +1,10 @@
+@use "../../styles/variables" as *;
+
+.last-edited-container {
+  display: flex;
+  height: min-content;
+  width: 115px;
+  gap: 6px;
+  padding-top: 4px;
+  align-items: center;
+}

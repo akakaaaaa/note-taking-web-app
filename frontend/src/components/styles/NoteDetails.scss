@@ -1,0 +1,61 @@
+@use "../../styles/variables" as *;
+
+.note-details-container {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  height: 697px;
+  border-right: 1px solid $neutral-300;
+  border-left: 1px solid $neutral-300;
+
+  .line {
+    border-bottom: 1px solid $neutral-300;
+  }
+
+  .note-details {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .note-details-tag-title {
+    width: 115px;
+    display: flex;
+    gap: 6px;
+    padding: 4px 0px;
+  }
+  .note-details-tags {
+    flex: 1;
+    display: flex;
+    box-sizing: border-box;
+    height: min-content;
+  }
+
+  .note-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
+  }
+
+  .note-edit-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .note-content {
+    width: 100%;
+    white-space: pre-line;
+    height: 567px;
+  }
+
+  .note-details-buttons-container {
+    display: flex;
+    gap: 16px;
+  }
+}
