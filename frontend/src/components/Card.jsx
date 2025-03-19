@@ -9,6 +9,7 @@ export const Card = ({
   footer_title,
   footer_if,
   footer_signOrLogin,
+  page,
 }) => {
   return (
     <div className="card">
@@ -22,17 +23,22 @@ export const Card = ({
       </div>
 
       <div className="card-form-container">{children}</div>
-      <div className="card-Oauth-container">
-        <p>{footer_title}</p>
-        <GoogleOAuth />
-      </div>
 
-      <div className="card-line"></div>
+      {page === "forgotPassword" ? null : (
+        <>
+          <div className="card-Oauth-container">
+            <p>{footer_title}</p>
+            <GoogleOAuth />
+          </div>
 
-      <div className="card-signup">
-        <p>{footer_if}</p>
-        <a href="">{footer_signOrLogin}</a>
-      </div>
+          <div className="card-line"></div>
+
+          <div className="card-signup">
+            <p>{footer_if}</p>
+            <a href="">{footer_signOrLogin}</a>
+          </div>
+        </>
+      )}
     </div>
   );
 };

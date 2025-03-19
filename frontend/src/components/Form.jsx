@@ -31,36 +31,40 @@ export const Form = ({
           required
         />
       </div>
-      <div className="password-container">
-        <div className="card-form-inner-container">
-          <label htmlFor="password">{label2_title}</label>
-          <a href="" className="card-forgot">
-            {forgot}
-          </a>
-        </div>
-        <div className="password-input-container">
-          <input
-            type={showPassword ? "text" : "password"}
-            disabled={disabled}
-            name="password"
-            required
-          />
-          <img
-            src={eyeIcon}
-            alt="toggle visibility"
-            className="password-toggle-icon"
-            onClick={togglePassword}
-          />
-        </div>
-        {page === "register" ? (
-          <div className="hint" style={{ opacity: disabled ? "40%" : "100%" }}>
-            <img src={info} alt="warn" />
-            <p className="hint-p">At least 8 characters</p>
+
+      {page === "forgotPassword" ? null : (
+        <div className="password-container">
+          <div className="card-form-inner-container">
+            <label htmlFor="password">{label2_title}</label>
+            <a href="" className="card-forgot">
+              {forgot}
+            </a>
           </div>
-        ) : (
-          <p></p>
-        )}
-      </div>
+          <div className="password-input-container">
+            <input
+              type={showPassword ? "text" : "password"}
+              disabled={disabled}
+              name="password"
+              required
+            />
+            <img
+              src={eyeIcon}
+              alt="toggle visibility"
+              className="password-toggle-icon"
+              onClick={togglePassword}
+            />
+          </div>
+          {page === "register" ? (
+            <div
+              className="hint"
+              style={{ opacity: disabled ? "40%" : "100%" }}
+            >
+              <img src={info} alt="warn" />
+              <p className="hint-p">At least 8 characters</p>
+            </div>
+          ) : null}
+        </div>
+      )}
 
       <SubmitButton type={"submit"}>{btn_value}</SubmitButton>
     </form>

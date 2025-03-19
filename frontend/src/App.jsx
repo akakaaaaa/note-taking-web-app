@@ -10,6 +10,7 @@ import { AllNotesSidebar } from "./components/AllNotesSidebar";
 import { NoteDetails } from "./components/NoteDetails";
 import { RightSidebar } from "./components/RightSidebar";
 import { Home } from "./pages/Home";
+import { ForgotPassword } from "./pages/ForgotPassword";
 
 {
   /* <Note
