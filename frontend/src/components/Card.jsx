@@ -24,7 +24,7 @@ export const Card = ({
 
       <div className="card-form-container">{children}</div>
 
-      {page === "forgotPassword" ? null : (
+      {page === "forgotPassword" || "reset" ? null : (
         <>
           <div className="card-Oauth-container">
             <p>{footer_title}</p>

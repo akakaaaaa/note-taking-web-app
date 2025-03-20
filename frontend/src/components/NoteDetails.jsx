@@ -4,12 +4,27 @@ import { LastEdited } from "./LastEdited";
 import { PrimaryButton } from "./PrimaryButton";
 import { SecondaryButton } from "./SecondaryButton";
 import tagIcon from "../assets/images/icon-tag.svg";
+import { useEffect, useState } from "react";
 
 export const NoteDetails = ({ note }) => {
+  const [content, setContent] = useState(note.content);
+  const [title, setTitle] = useState(note.title);
+
+  useEffect(() => {
+    setContent(note.content);
+    setTitle(note.title);
+  }, [note]);
+
   return (
     <div className="note-details-container">
       <div className="note-details-title">
-        <h1>{note.title}</h1>
+        <textarea
+          type="text"
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
       </div>
       <div className="note-details">
         <div className="note-tags">
@@ -32,13 +47,17 @@ export const NoteDetails = ({ note }) => {
         </div>
       </div>
       <div className="line"></div>
-      <div className="note-content">{note.content}</div>
+      <textarea
+        className="note-content"
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      />
       <div className="line"></div>
       <div className="note-details-buttons-container">
         <div>
           <PrimaryButton>Save Note</PrimaryButton>
         </div>
-        <SecondaryButton>Candel</SecondaryButton>
+        <SecondaryButton>Cancel</SecondaryButton>
       </div>
     </div>
   );

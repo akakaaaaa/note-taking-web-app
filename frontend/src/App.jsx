@@ -11,6 +11,7 @@ import { NoteDetails } from "./components/NoteDetails";
 import { RightSidebar } from "./components/RightSidebar";
 import { Home } from "./pages/Home";
 import { ForgotPassword } from "./pages/ForgotPassword";
+import { ResetPassword } from "./pages/ResetPassword";
 
 {
   /* <Note
@@ -106,7 +107,7 @@ const notes = [
 function App() {
   return (
     <>
-      <Home />
+      <ResetPassword />
     </>
   );
 }

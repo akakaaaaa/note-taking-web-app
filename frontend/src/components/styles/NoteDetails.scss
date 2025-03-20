@@ -22,6 +22,30 @@
     gap: 8px;
   }
 
+  .note-details-title textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 24px;
+    resize: none;
+    font-weight: bold;
+    font-family: $font-family-inter;
+    height: 29px;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $neutral-300;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: $neutral-300;
+    }
+  }
+
   .note-details-tag-title {
     width: 115px;
     display: flex;
@@ -52,6 +76,16 @@
     width: 100%;
     white-space: pre-line;
     height: 567px;
+    resize: none;
+    border: none;
+    outline: none;
+    font-family: $font-family-inter;
+    font-size: 14px;
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
   }
 
   .note-details-buttons-container {
