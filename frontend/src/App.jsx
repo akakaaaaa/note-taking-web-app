@@ -12,6 +12,8 @@ import { RightSidebar } from "./components/RightSidebar";
 import { Home } from "./pages/Home";
 import { ForgotPassword } from "./pages/ForgotPassword";
 import { ResetPassword } from "./pages/ResetPassword";
+import { Toolbar } from "./components/Toolbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 {
   /* <Note
@@ -107,7 +109,7 @@ const notes = [
 function App() {
   return (
     <>
-      <ResetPassword />
+      <Home />
     </>
   );
 }

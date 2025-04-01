@@ -7,6 +7,8 @@ import { AllNotesSidebar } from "../components/AllNotesSidebar";
 import { NoteDetails } from "../components/NoteDetails";
 import { RightSidebar } from "../components/RightSidebar";
 import { useState } from "react";
+import { Toolbar } from "../components/Toolbar";
+import { useEffect } from "react";
 
 const notes = [
   {
@@ -105,7 +107,7 @@ notes.forEach((note) => allTags.push(...note.tags));
 const uniqueTags = [...new Set(allTags)];
 
 export const Home = () => {
-  const [selectedNote, setSelectedNote] = useState(notes[0]);
+  const [selectedNote, setSelectedNote] = useState(null);
 
   return (
     <div className="homepage">
@@ -125,6 +127,9 @@ export const Home = () => {
       </div>
       <div className="rightsidebar">
         <RightSidebar />
+      </div>
+      <div className="toolbar-container-app">
+        <Toolbar />
       </div>
     </div>
   );

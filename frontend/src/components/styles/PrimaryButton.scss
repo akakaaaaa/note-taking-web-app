@@ -33,4 +33,28 @@
     color: $neutral-300;
     border: 0px solid transparent;
   }
+
+  .primaryBtnText {
+    display: inline;
+  }
+
+  .primaryBtnIcon {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .primaryBtn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+
+    .primaryBtnText {
+      display: none;
+    }
+    .primaryBtnIcon {
+      display: inline;
+      filter: invert(1);
+    }
+  }
 }

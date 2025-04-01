@@ -7,6 +7,14 @@ import tagIcon from "../assets/images/icon-tag.svg";
 import { useEffect, useState } from "react";
 
 export const NoteDetails = ({ note }) => {
+  if (note === null) {
+    return (
+      <div className="note-details-container">
+        <p>Note is not selected</p>
+      </div>
+    );
+  }
+
   const [content, setContent] = useState(note.content);
   const [title, setTitle] = useState(note.title);
 
@@ -17,6 +25,7 @@ export const NoteDetails = ({ note }) => {
 
   return (
     <div className="note-details-container">
+      <div className="note-details-mobile-toolbar"></div>
       <div className="note-details-title">
         <textarea
           type="text"

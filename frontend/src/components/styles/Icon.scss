@@ -1,0 +1,42 @@
+@use "../../styles/variables" as *;
+
+.icon-container {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  gap: 4px;
+  flex-direction: column;
+  border-radius: 4px;
+  width: 80px;
+  &:hover {
+    img,
+    p {
+      filter: brightness(0) saturate(100%) invert(20%) sepia(100%)
+        saturate(5000%) hue-rotate(200deg);
+    }
+
+    background-color: $blue-50;
+  }
+}
+
+.pressed {
+  background-color: $blue-50;
+  img,
+  p {
+    filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(5000%)
+      hue-rotate(200deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .icon-container {
+    padding: 8px 4px 8px 4px;
+  }
+
+  .icon-name {
+    display: none;
+  }
+}

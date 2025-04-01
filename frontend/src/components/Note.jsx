@@ -1,5 +1,6 @@
 import { NoteInnerTag } from "./NoteInnerTag";
 import "./styles/Note.scss";
+import { useNavigate } from "react-router-dom";
 
 export const Note = ({ note, isSelected }) => {
   return (

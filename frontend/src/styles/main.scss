@@ -13,8 +13,22 @@ body {
   color: $neutral-950;
 }
 
+.toolbar-container-app {
+  // display: none;
+}
+
 p,
 h1,
 h2 {
   margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .toolbar-container-app {
+    width: 100%;
+    height: min-content;
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+  }
 }

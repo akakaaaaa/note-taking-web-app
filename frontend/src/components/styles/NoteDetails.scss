@@ -92,4 +92,17 @@
     display: flex;
     gap: 16px;
   }
+
+  .note-details-mobile-toolbar-container {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .note-details-container {
+    display: none;
+    .note-details-mobile-toolbar-container {
+      display: inline;
+    }
+  }
 }

@@ -45,3 +45,9 @@ body {
 .note-active {
   background-color: $neutral-100;
 }
+
+@media (max-width: 1024px) {
+  .note {
+    width: 100%;
+  }
+}
