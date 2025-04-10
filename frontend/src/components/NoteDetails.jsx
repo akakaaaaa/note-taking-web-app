@@ -5,14 +5,12 @@ import { PrimaryButton } from "./PrimaryButton";
 import { SecondaryButton } from "./SecondaryButton";
 import tagIcon from "../assets/images/icon-tag.svg";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import notes from "./notes";
 
 export const NoteDetails = ({ note }) => {
-  if (note === null) {
-    return (
-      <div className="note-details-container">
-        <p>Note is not selected</p>
-      </div>
-    );
+  if (!note) {
+    return null;
   }
 
   const [content, setContent] = useState(note.content);

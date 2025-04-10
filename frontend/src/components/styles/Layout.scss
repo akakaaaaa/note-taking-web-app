@@ -1,0 +1,25 @@
+@use "../../styles/variables" as *;
+
+.app-layout {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 272px auto;
+}
+
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+@media (max-width: 1024px) {
+  .app-layout {
+    display: flex;
+  }
+  .page-content {
+    background-color: $neutral-100;
+  }
+  .searchbar-container {
+    display: none;
+  }
+}

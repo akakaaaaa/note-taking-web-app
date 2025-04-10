@@ -7,11 +7,10 @@
   gap: 16px;
   box-sizing: border-box;
   height: 697px;
-  border-right: 1px solid $neutral-300;
-  border-left: 1px solid $neutral-300;
+  border-right: 1px solid $neutral-200;
 
   .line {
-    border-bottom: 1px solid $neutral-300;
+    border-bottom: 1px solid $neutral-200;
   }
 
   .note-details {

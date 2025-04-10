@@ -5,7 +5,12 @@ import homeIcon from "../assets/images/icon-home.svg";
 import arrowRightIcon from "../assets/images/icon-chevron-right.svg";
 import { Tag } from "./Tag";
 
-export const Sidebar = ({ tags }) => {
+export const Sidebar = ({
+  tags,
+  onAllNotesClick,
+  onArchivedNotesClick,
+  isArchived,
+}) => {
   return (
     <div className="sidebar">
       <div className="sidebar-logo-container">
@@ -13,21 +18,23 @@ export const Sidebar = ({ tags }) => {
       </div>
       <div className="navigation-container">
         <div className="note-navigation">
-          <div className="all-notes-container">
+          <button
+            className={`all-notes-container ${!isArchived ? "active" : ""}`}
+            onClick={onAllNotesClick}
+          >
             <img src={homeIcon} className="homeIcon" alt="" />
-            <a href="" className="all-notes">
-              All Notes
-            </a>
+            <p className="all-notes">All Notes</p>
             <img className="arrowContainer" src={arrowRightIcon} alt="" />
-          </div>
+          </button>
 
-          <div className="archived-notes-container">
+          <button
+            className={`archived-notes-container ${isArchived ? "active" : ""}`}
+            onClick={onArchivedNotesClick}
+          >
             <img src={archiveIcon} className="archiveIcon" alt="" />
-            <a href="" className="archived-notes">
-              Archived Notes
-            </a>
+            <p className="archived-notes">Archived Notes</p>
             <img className="arrowContainer" src={arrowRightIcon} alt="" />
-          </div>
+          </button>
         </div>
         <div className="line"></div>
         <div className="p-wrap">

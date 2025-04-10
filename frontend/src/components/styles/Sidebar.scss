@@ -22,6 +22,7 @@ a {
   max-width: 272px;
   box-sizing: border-box;
   height: 778px;
+  font-size: $font-size-small;
 
   .sidebar-logo-container {
     width: 100%;
@@ -64,6 +65,7 @@ a {
 
   .all-notes-container,
   .archived-notes-container {
+    cursor: pointer;
     display: flex;
     align-items: center;
     padding: 10px 12px 10px 12px;
@@ -71,6 +73,9 @@ a {
     border-radius: $border-radius-8;
     font-size: $font-size-small;
     transition: all 0.3s ease;
+    text-align: start;
+    border: none;
+    background-color: transparent;
 
     &:hover {
       background-color: $neutral-100;
@@ -87,8 +92,8 @@ a {
     }
   }
 
-  .all-notes-container a,
-  .archived-notes-container a {
+  .all-notes-container p,
+  .archived-notes-container p {
     flex: 1;
     color: $neutral-950;
     line-height: 120%;
@@ -119,5 +124,19 @@ a {
     &::-webkit-scrollbar-thumb:hover {
       background: $neutral-300;
     }
+  }
+}
+
+.active {
+  background-color: $neutral-100 !important;
+
+  .arrowContainer {
+    opacity: 100%;
+  }
+
+  .archiveIcon,
+  .homeIcon {
+    filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(5000%)
+      hue-rotate(200deg);
   }
 }
