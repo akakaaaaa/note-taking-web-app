@@ -10,9 +10,13 @@ import { useState } from "react";
 import { Toolbar } from "../components/Toolbar";
 import { useEffect } from "react";
 import notes from "../components/notes";
+import useWindowWidth from "../components/useWindowWidth";
 
 export const Home = () => {
   const [selectedNote, setSelectedNote] = useState(null);
+
+  const width = useWindowWidth();
+  const isMobileOrTablet = width <= 1024;
 
   useEffect(() => {
     setSelectedNote(null);
@@ -31,7 +35,15 @@ export const Home = () => {
         />
       </div>
       <div className="notedetails">
-        {selectedNote && <NoteDetails note={selectedNote} />}
+        {selectedNote &&
+          (isMobileOrTablet ? (
+            <NoteDetails
+              note={selectedNote}
+              onClose={() => setSelectedNote(null)}
+            />
+          ) : (
+            <NoteDetails note={selectedNote} />
+          ))}
       </div>
       <div className="rightsidebar">{selectedNote && <RightSidebar />}</div>
     </div>

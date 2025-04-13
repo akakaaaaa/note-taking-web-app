@@ -4,6 +4,7 @@
   display: grid;
   height: 100vh;
   grid-template-columns: 272px auto;
+  overflow-y: hidden;
 }
 
 .page-content {

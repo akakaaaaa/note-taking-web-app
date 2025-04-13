@@ -1,17 +1,4 @@
-import "./styles/NoteDetails.scss";
-import { Tag } from "./Tag";
-import { LastEdited } from "./LastEdited";
-import { PrimaryButton } from "./PrimaryButton";
-import { SecondaryButton } from "./SecondaryButton";
-import tagIcon from "../assets/images/icon-tag.svg";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import notes from "./notes";
-import trashIcon from "../assets/images/icon-delete.svg";
-import archiveIcon from "../assets/images/icon-archive.svg";
-import leftArrowIcon from "../assets/images/icon-arrow-left.svg";
-
-export const NoteDetails = ({ note, onClose }) => {
+export const NoteDetailsApp = ({ note }) => {
   if (!note) {
     return null;
   }
@@ -26,24 +13,7 @@ export const NoteDetails = ({ note, onClose }) => {
 
   return (
     <div className="note-details-container">
-      <div className="note-details-mobile-toolbar">
-        <button onClick={onClose} className="go-back">
-          <img src={leftArrowIcon} alt="" />
-          Go Back
-        </button>
-        <div className="note-details-mobile-toolbar-end-menu">
-          <button className="delete-note">
-            <img src={trashIcon} alt="" />
-          </button>
-          <button className="archive-note">
-            <img src={archiveIcon} alt="" />
-          </button>
-          <button onClick={onClose} className="cancel">
-            Cancel
-          </button>
-          <button className="save-note">Save Note</button>
-        </div>
-      </div>
+      <div className="note-details-mobile-toolbar"></div>
       <div className="note-details-title">
         <textarea
           type="text"
@@ -79,7 +49,7 @@ export const NoteDetails = ({ note, onClose }) => {
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <div className="line-app"></div>
+      <div className="line"></div>
       <div className="note-details-buttons-container">
         <div>
           <PrimaryButton>Save Note</PrimaryButton>
