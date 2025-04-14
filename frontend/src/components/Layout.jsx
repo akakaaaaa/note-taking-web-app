@@ -4,16 +4,20 @@ import { Outlet } from "react-router-dom";
 import { Toolbar } from "./Toolbar";
 import notes from "./notes";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Layout = () => {
+  const navigate = useNavigate();
   const [isArchived, setIsArchived] = useState(false);
 
   const handleAllNotesClick = () => {
     setIsArchived(false);
+    navigate("/");
   };
 
   const handleArchivedNotesClick = () => {
     setIsArchived(true);
+    navigate("/Archive");
   };
 
   const allTags = [];

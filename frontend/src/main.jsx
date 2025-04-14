@@ -8,3 +8,7 @@ createRoot(document.getElementById("root")).render(
     <App />
   </BrowserRouter>
 );
+
+// 1. fix sidebar all notes and archived notes button, when refreshed state not defaults.
+// 2. finish archive page
+// 3. in sidebar when tags are pressed code needs to filter notes depending on selected tag

@@ -1,4 +1,4 @@
-import "./styles/Home.scss";
+import "./styles/Archive.scss";
 import { Searchbar } from "../components/Searchbar";
 import { AllNotesSidebar } from "../components/AllNotesSidebar";
 import { NoteDetails } from "../components/NoteDetails";
@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import notes from "../components/notes";
 import useWindowWidth from "../components/useWindowWidth";
 
-export const Home = () => {
+export const Archive = () => {
   const [selectedNote, setSelectedNote] = useState(null);
 
   const width = useWindowWidth();
@@ -19,15 +19,16 @@ export const Home = () => {
   }, [notes]);
 
   return (
-    <div className="homepage">
+    <div className="archivepage">
       <div className="searchbar">
         <Searchbar />
       </div>
       <div className="allnotessidebar">
         <AllNotesSidebar
-          notes={notes}
+          notes={null}
           selectedNote={selectedNote}
           onNoteSelect={setSelectedNote}
+          archived={true}
         />
       </div>
       <div className="notedetails">

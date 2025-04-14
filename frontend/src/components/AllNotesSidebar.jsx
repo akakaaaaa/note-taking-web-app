@@ -1,22 +1,22 @@
 import "./styles/AllNotesSidebar.scss";
 import { PrimaryButton } from "./PrimaryButton";
 import { Note } from "./Note";
+import { useNavigate } from "react-router-dom";
 
-export const AllNotesSidebar = ({ notes, selectedNote, onNoteSelect }) => {
-  if (!notes) {
-    return (
-      <div className="allnotes-container">
-        <div className="btn-container">
-          <PrimaryButton>+ Create New Note</PrimaryButton>
-        </div>
-        <p style={style.p}>
-          You don’t have any notes yet. Start a new note to capture your
-          thoughts and ideas.
-        </p>
-        <div className="line"></div>
-      </div>
-    );
+export const AllNotesSidebar = ({
+  notes,
+  selectedNote,
+  onNoteSelect,
+  archived,
+}) => {
+  const navigate = useNavigate();
+
+  function handleNewNote(e) {
+    e.preventDefault();
+    console.log("new note page");
   }
+
+  const showEmptyMessage = !notes || notes.length === 0;
 
   return (
     <div className="allnotes-container">
@@ -24,11 +24,30 @@ export const AllNotesSidebar = ({ notes, selectedNote, onNoteSelect }) => {
         <PrimaryButton>+ Create New Note</PrimaryButton>
       </div>
 
-      <p className="app-all-notes-p">All Notes</p>
+      {archived && (
+        <p className="archive-notes">
+          All your archived notes are stored here. You can restore or delete
+          them anytime.
+        </p>
+      )}
 
-      <div className="notes-container">
-        {notes.length > 0 ? (
-          notes.map((note) => (
+      {showEmptyMessage ? (
+        <div>
+          <p style={style.p}>
+            {archived
+              ? "No notes have been archived yet. Move notes here for safekeeping, or "
+              : "You don’t have any notes yet. Start a new note to capture your thoughts and ideas."}
+            {archived && (
+              <a href="#" onClick={handleNewNote}>
+                create a new note.
+              </a>
+            )}
+          </p>
+          <div className="line"></div>
+        </div>
+      ) : (
+        <div className="notes-container">
+          {notes.map((note) => (
             <div
               className="notewrapper"
               key={note.id}
@@ -37,11 +56,9 @@ export const AllNotesSidebar = ({ notes, selectedNote, onNoteSelect }) => {
               <Note note={note} isSelected={selectedNote?.id === note.id} />
               <div className="line"></div>
             </div>
-          ))
-        ) : (
-          <p>No notes</p>
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
@@ -57,13 +74,5 @@ const style = {
     padding: "8px",
     lineHeight: "130%",
     letterSpacing: "-0.2px",
-  },
-  p2: {
-    display: "block",
-    color: "black",
-    fontSize: "24px",
-    fontWeight: "bold",
-    lineHeight: "120%",
-    letterSpacing: "-0.5px",
   },
 };

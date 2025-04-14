@@ -16,15 +16,14 @@ import { Toolbar } from "./components/Toolbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import notes from "./components/notes";
 import { Layout } from "./components/Layout";
-import { Archieve } from "./pages/Archieve";
+import { Archive } from "./pages/Archive";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="archive" element={<Archieve />} />
-        {/* Add more nested routes here */}
+        <Route path="/Archive" element={<Archive />} />
       </Route>
     </Routes>
   );

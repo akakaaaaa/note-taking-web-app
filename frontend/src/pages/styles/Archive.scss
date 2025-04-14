@@ -1,0 +1,85 @@
+@use "../../styles/variables" as *;
+@use "../../styles/variables" as *;
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.archivepage {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 290px auto;
+  grid-template-rows: 81px auto;
+  box-sizing: border-box;
+}
+
+.borderBtn {
+  box-sizing: border-box;
+}
+
+/* Sidebar - Left Navigation */
+
+/* Search Bar - Stretches across columns */
+.searchbar {
+  grid-column: 1 / span 3; /* Make it span across the remaining 3 columns */
+  grid-row: 1;
+  box-sizing: border-box;
+}
+
+.header {
+  box-sizing: border-box;
+}
+
+.right-sidebar-container {
+  box-sizing: border-box;
+}
+
+/* All Notes Sidebar */
+.allnotessidebar {
+  grid-column: 1;
+  grid-row: 2;
+  box-sizing: border-box;
+  height: max-content;
+}
+
+/* Note Details - Main Content */
+.notedetails {
+  grid-column: 2;
+  grid-row: 2;
+  box-sizing: border-box;
+  height: min-content;
+}
+
+/* Right Sidebar - Actions/Settings */
+
+.rightsidebar {
+  grid-column: 3; /* Place in the fourth column */
+  grid-row: 2;
+  box-sizing: border-box;
+  height: min-content;
+}
+.overlay {
+  position: fixed;
+  top: 81px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .archivepage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 80px);
+  }
+
+  .right-sidebar-container {
+    display: none;
+  }
+}
