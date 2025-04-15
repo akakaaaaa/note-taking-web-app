@@ -4,13 +4,14 @@ import archiveIcon from "../assets/images/icon-archive.svg";
 import homeIcon from "../assets/images/icon-home.svg";
 import arrowRightIcon from "../assets/images/icon-chevron-right.svg";
 import { Tag } from "./Tag";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export const Sidebar = ({
-  tags,
-  onAllNotesClick,
-  onArchivedNotesClick,
-  isArchived,
-}) => {
+export const Sidebar = ({ tags }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleAllNotesClick = () => navigate("/");
+  const handleArchivedNotesClick = () => navigate("/Archive");
   return (
     <div className="sidebar">
       <div className="sidebar-logo-container">
@@ -19,8 +20,10 @@ export const Sidebar = ({
       <div className="navigation-container">
         <div className="note-navigation">
           <button
-            className={`all-notes-container ${!isArchived ? "active" : ""}`}
-            onClick={onAllNotesClick}
+            className={`all-notes-container ${
+              location.pathname === "/" ? "active" : ""
+            }`}
+            onClick={handleAllNotesClick}
           >
             <img src={homeIcon} className="homeIcon" alt="" />
             <p className="all-notes">All Notes</p>
@@ -28,8 +31,10 @@ export const Sidebar = ({
           </button>
 
           <button
-            className={`archived-notes-container ${isArchived ? "active" : ""}`}
-            onClick={onArchivedNotesClick}
+            className={`archived-notes-container ${
+              location.pathname === "/Archive" ? "active" : ""
+            }`}
+            onClick={handleArchivedNotesClick}
           >
             <img src={archiveIcon} className="archiveIcon" alt="" />
             <p className="archived-notes">Archived Notes</p>

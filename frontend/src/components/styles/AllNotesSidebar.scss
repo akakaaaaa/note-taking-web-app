@@ -69,6 +69,11 @@
     line-height: 130%;
     font-size: 14px;
   }
+
+  .newNoteA {
+    color: $neutral-950;
+    text-decoration: underline;
+  }
 }
 
 @media (max-width: 1024px) {

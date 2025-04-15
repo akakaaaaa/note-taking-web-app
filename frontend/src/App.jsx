@@ -14,7 +14,7 @@ import { ForgotPassword } from "./pages/ForgotPassword";
 import { ResetPassword } from "./pages/ResetPassword";
 import { Toolbar } from "./components/Toolbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import notes from "./components/notes";
+import notes from "./utils/notes";
 import { Layout } from "./components/Layout";
 import { Archive } from "./pages/Archive";
 

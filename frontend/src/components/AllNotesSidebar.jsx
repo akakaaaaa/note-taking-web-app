@@ -13,7 +13,7 @@ export const AllNotesSidebar = ({
 
   function handleNewNote(e) {
     e.preventDefault();
-    console.log("new note page");
+    navigate("/");
   }
 
   const showEmptyMessage = !notes || notes.length === 0;
@@ -38,7 +38,7 @@ export const AllNotesSidebar = ({
               ? "No notes have been archived yet. Move notes here for safekeeping, or "
               : "You don’t have any notes yet. Start a new note to capture your thoughts and ideas."}
             {archived && (
-              <a href="#" onClick={handleNewNote}>
+              <a className="newNoteA" href="/" onClick={handleNewNote}>
                 create a new note.
               </a>
             )}

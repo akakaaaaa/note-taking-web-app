@@ -1,15 +1,13 @@
 import "./styles/NoteDetails.scss";
-import { Tag } from "./Tag";
 import { LastEdited } from "./LastEdited";
 import { PrimaryButton } from "./PrimaryButton";
 import { SecondaryButton } from "./SecondaryButton";
 import tagIcon from "../assets/images/icon-tag.svg";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import notes from "./notes";
 import trashIcon from "../assets/images/icon-delete.svg";
 import archiveIcon from "../assets/images/icon-archive.svg";
 import leftArrowIcon from "../assets/images/icon-arrow-left.svg";
+import statusIcon from "../assets/images/icon-status.svg";
 
 export const NoteDetails = ({ note, onClose }) => {
   if (!note) {
@@ -68,6 +66,19 @@ export const NoteDetails = ({ note, onClose }) => {
             ))}
           </div>
         </div>
+
+        {note.status ? (
+          <div className="note-status">
+            <div className="note-status-title">
+              <img src={statusIcon} alt="" />
+              <p className="tag-p">Status</p>
+            </div>
+            <div className="note-status-value">
+              <p>{note.status}</p>
+            </div>
+          </div>
+        ) : null}
+
         <div className="note-edit-time">
           <LastEdited />
           <p>{note.edited_time}</p>

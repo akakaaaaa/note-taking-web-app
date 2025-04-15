@@ -5,8 +5,8 @@ import { NoteDetails } from "../components/NoteDetails";
 import { RightSidebar } from "../components/RightSidebar";
 import { useState } from "react";
 import { useEffect } from "react";
-import notes from "../components/notes";
-import useWindowWidth from "../components/useWindowWidth";
+import notes from "../utils/notes";
+import useWindowWidth from "../utils/useWindowWidth";
 
 export const Home = () => {
   const [selectedNote, setSelectedNote] = useState(null);

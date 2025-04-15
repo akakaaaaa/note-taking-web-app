@@ -5,8 +5,8 @@ import { NoteDetails } from "../components/NoteDetails";
 import { RightSidebar } from "../components/RightSidebar";
 import { useState } from "react";
 import { useEffect } from "react";
-import notes from "../components/notes";
-import useWindowWidth from "../components/useWindowWidth";
+import useWindowWidth from "../utils/useWindowWidth";
+import archivedNotes from "../utils/archivedNotes";
 
 export const Archive = () => {
   const [selectedNote, setSelectedNote] = useState(null);
@@ -16,7 +16,7 @@ export const Archive = () => {
 
   useEffect(() => {
     setSelectedNote(null);
-  }, [notes]);
+  }, [archivedNotes]);
 
   return (
     <div className="archivepage">
@@ -25,7 +25,7 @@ export const Archive = () => {
       </div>
       <div className="allnotessidebar">
         <AllNotesSidebar
-          notes={null}
+          notes={archivedNotes}
           selectedNote={selectedNote}
           onNoteSelect={setSelectedNote}
           archived={true}

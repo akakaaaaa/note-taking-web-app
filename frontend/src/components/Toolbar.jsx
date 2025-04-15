@@ -6,16 +6,41 @@ import tagicon from "../assets/images/icon-tag.svg";
 import settingicon from "../assets/images/icon-settings.svg";
 import { Icon } from "./Icon";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Toolbar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const navigate = useNavigate();
+
+  const handleHomeRedirect = () => {
+    setActiveIndex(0);
+    navigate("/");
+  };
+
+  const handleArchiveRedirect = () => {
+    setActiveIndex(2);
+    navigate("/Archive");
+  };
+
+  const handleSearchRedirect = () => {
+    setActiveIndex(1);
+  };
+
+  const handleTagsRedirect = () => {
+    setActiveIndex(3);
+  };
+
+  const handleSettingsRedirect = () => {
+    setActiveIndex(4);
+  };
 
   return (
     <div className="toolbar-container">
       <Icon
         source={homeicon}
         isActive={activeIndex === 0}
-        onPress={() => setActiveIndex(0)}
+        onPress={handleHomeRedirect}
       >
         Home
       </Icon>
@@ -32,7 +57,7 @@ export const Toolbar = () => {
       <Icon
         source={archiveicon}
         isActive={activeIndex === 2}
-        onPress={() => setActiveIndex(2)}
+        onPress={handleArchiveRedirect}
       >
         Archived
       </Icon>

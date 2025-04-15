@@ -48,12 +48,38 @@
     }
   }
 
-  .note-details-tag-title {
+  .note-details-tag-title,
+  .note-status-title,
+  .last-edited-container {
     width: 115px;
     display: flex;
     gap: 6px;
     padding: 4px 0px;
+    align-items: center;
+    line-height: 130%;
+    letter-spacing: -0.2px;
+    opacity: 80%;
   }
+
+  .note-status,
+  .note-tags,
+  .note-edit-time {
+    font-size: $font-size-small;
+  }
+
+  .note-status img,
+  .note-tags img,
+  .note-edit-time img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .note-status-value {
+    color: $neutral-950;
+    line-height: 130%;
+    letter-spacing: -0.2px;
+  }
+
   .note-details-tags {
     flex: 1;
     display: flex;
@@ -61,7 +87,8 @@
     height: min-content;
   }
 
-  .note-tags {
+  .note-tags,
+  .note-status {
     display: flex;
     align-items: center;
     gap: 8px;
