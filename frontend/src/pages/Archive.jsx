@@ -42,7 +42,9 @@ export const Archive = () => {
             <NoteDetails note={selectedNote} />
           ))}
       </div>
-      <div className="rightsidebar">{selectedNote && <RightSidebar />}</div>
+      <div className="rightsidebar">
+        {selectedNote && <RightSidebar isArchive={true} />}
+      </div>
     </div>
   );
 };
