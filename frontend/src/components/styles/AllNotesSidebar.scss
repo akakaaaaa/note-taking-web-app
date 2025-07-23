@@ -53,10 +53,6 @@
     padding-right: 20px;
   }
 
-  .btn-container {
-    width: 100%;
-  }
-
   .notewrapper {
     display: flex;
     flex-direction: column;
@@ -107,6 +103,7 @@
       position: absolute;
       bottom: 89px;
       right: 10px;
+      border-radius: 50%;
     }
   }
 }

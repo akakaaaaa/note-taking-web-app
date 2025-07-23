@@ -101,9 +101,11 @@ a {
   }
 
   .tags-container {
-    max-height: 700px;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
     box-sizing: border-box;
+    gap: 2px;
     &::-webkit-scrollbar {
       width: 3px;
     }

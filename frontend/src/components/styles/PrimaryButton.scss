@@ -13,7 +13,7 @@
   cursor: pointer;
   line-height: 120%;
   font-size: $font-size-small;
-  transition: all 0.3s ease;
+  transition: outline 0.3s ease, color 0.3s ease, background-color 0.3s ease;
   font-family: $font-family-inter;
   width: 100%;
 

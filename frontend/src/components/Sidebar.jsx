@@ -5,13 +5,28 @@ import homeIcon from "../assets/images/icon-home.svg";
 import arrowRightIcon from "../assets/images/icon-chevron-right.svg";
 import { Tag } from "./Tag";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const Sidebar = ({ tags }) => {
+  const [selectedTag, setSelectedTag] = useState(null);
+
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleAllNotesClick = () => navigate("/");
-  const handleArchivedNotesClick = () => navigate("/Archive");
+  const handleAllNotesClick = () => {
+    setSelectedTag(null);
+    navigate("/");
+  };
+  const handleArchivedNotesClick = () => {
+    setSelectedTag(null);
+    navigate("/Archive");
+  };
+
+  function handleTagClick(tag) {
+    setSelectedTag(tag);
+    console.log(tag);
+  }
+
   return (
     <div className="sidebar">
       <div className="sidebar-logo-container">
@@ -48,7 +63,13 @@ export const Sidebar = ({ tags }) => {
 
         <div className="tags-container">
           {tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
+            <Tag
+              key={tag}
+              onClick={() => handleTagClick(tag)}
+              isActive={selectedTag === tag}
+            >
+              {tag}
+            </Tag>
           ))}
         </div>
       </div>
