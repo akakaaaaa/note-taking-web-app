@@ -6,9 +6,10 @@ import arrowRightIcon from "../assets/images/icon-chevron-right.svg";
 import { Tag } from "./Tag";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useUser } from "../store/userContext";
 
 export const Sidebar = ({ tags }) => {
-  const [selectedTag, setSelectedTag] = useState(null);
+  const { selectedTag, setSelectedTag } = useUser();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ export const Sidebar = ({ tags }) => {
     setSelectedTag(null);
     navigate("/");
   };
+
   const handleArchivedNotesClick = () => {
     setSelectedTag(null);
     navigate("/Archive");

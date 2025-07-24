@@ -2,21 +2,25 @@ import "./styles/AllNotesSidebar.scss";
 import { PrimaryButton } from "./PrimaryButton";
 import { Note } from "./Note";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../store/userContext";
+import { useLocation } from "react-router-dom";
 
-export const AllNotesSidebar = ({
-  notes,
-  selectedNote,
-  onNoteSelect,
-  archived,
-}) => {
+export const AllNotesSidebar = ({ selectedNote, onNoteSelect }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { filteredNotes, filteredArchivedNotes } = useUser();
+
+  const notesToShow =
+    location.pathname === "/Archive" ? filteredArchivedNotes : filteredNotes;
+
+  const isPageArchived = location.pathname === "/Archive";
 
   function handleNewNote(e) {
     e.preventDefault();
     navigate("/");
   }
 
-  const showEmptyMessage = !notes || notes.length === 0;
+  const showEmptyMessage = !notesToShow || notesToShow.length === 0;
 
   return (
     <div className="allnotes-container">
@@ -24,7 +28,7 @@ export const AllNotesSidebar = ({
         <PrimaryButton>+ Create New Note</PrimaryButton>
       </div>
 
-      {archived && (
+      {isPageArchived && (
         <p className="archive-notes">
           All your archived notes are stored here. You can restore or delete
           them anytime.
@@ -34,20 +38,20 @@ export const AllNotesSidebar = ({
       {showEmptyMessage ? (
         <div>
           <p style={style.p}>
-            {archived
+            {isPageArchived
               ? "No notes have been archived yet. Move notes here for safekeeping, or "
               : "You don’t have any notes yet. Start a new note to capture your thoughts and ideas."}
-            {archived && (
-              <a className="newNoteA" href="/" onClick={handleNewNote}>
+            {isPageArchived && (
+              <button className="newNoteA" href="/" onClick={handleNewNote}>
                 create a new note.
-              </a>
+              </button>
             )}
           </p>
           <div className="line"></div>
         </div>
       ) : (
         <div className="notes-container">
-          {notes.map((note) => (
+          {notesToShow.map((note) => (
             <div
               className="notewrapper"
               key={note.id}
