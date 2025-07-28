@@ -1,31 +1,36 @@
 import "./styles/AllNotesSidebar.scss";
 import { PrimaryButton } from "./PrimaryButton";
 import { Note } from "./Note";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../store/userContext";
-import { useLocation } from "react-router-dom";
 
 export const AllNotesSidebar = ({ selectedNote, onNoteSelect }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { filteredNotes, filteredArchivedNotes } = useUser();
-
-  const notesToShow =
-    location.pathname === "/Archive" ? filteredArchivedNotes : filteredNotes;
+  const { filteredNotes, filteredArchivedNotes, filterWord } = useUser();
 
   const isPageArchived = location.pathname === "/Archive";
+  let notesToShow = isPageArchived ? filteredArchivedNotes : filteredNotes;
 
-  function handleNewNote(e) {
+  if (filterWord.trim() !== "") {
+    notesToShow = notesToShow.filter(
+      (note) =>
+        note.title.toLowerCase().includes(filterWord.toLowerCase()) ||
+        note.content.toLowerCase().includes(filterWord.toLowerCase())
+    );
+  }
+
+  const handleNewNote = (e) => {
     e.preventDefault();
     navigate("/");
-  }
+  };
 
   const showEmptyMessage = !notesToShow || notesToShow.length === 0;
 
   return (
     <div className="allnotes-container">
       <div className="btn-container">
-        <PrimaryButton>+ Create New Note</PrimaryButton>
+        <PrimaryButton onClick={handleNewNote}>+ Create New Note</PrimaryButton>
       </div>
 
       {isPageArchived && (
@@ -42,7 +47,7 @@ export const AllNotesSidebar = ({ selectedNote, onNoteSelect }) => {
               ? "No notes have been archived yet. Move notes here for safekeeping, or "
               : "You don’t have any notes yet. Start a new note to capture your thoughts and ideas."}
             {isPageArchived && (
-              <button className="newNoteA" href="/" onClick={handleNewNote}>
+              <button className="newNoteA" onClick={handleNewNote}>
                 create a new note.
               </button>
             )}

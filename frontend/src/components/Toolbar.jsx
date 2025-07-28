@@ -5,34 +5,39 @@ import archiveicon from "../assets/images/icon-archive.svg";
 import tagicon from "../assets/images/icon-tag.svg";
 import settingicon from "../assets/images/icon-settings.svg";
 import { Icon } from "./Icon";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const Toolbar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const location = useLocation();
   const navigate = useNavigate();
 
-  const handleHomeRedirect = () => {
-    setActiveIndex(0);
-    navigate("/");
-  };
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/":
+        setActiveIndex(0);
+        break;
+      case "/Search":
+        setActiveIndex(1);
+        break;
+      case "/Archive":
+        setActiveIndex(2);
+        break;
+      case "/Tags":
+        setActiveIndex(3);
+        break;
+      case "/Settings":
+        setActiveIndex(4);
+        break;
+      default:
+        setActiveIndex(-1);
+    }
+  }, [location.pathname]);
 
-  const handleArchiveRedirect = () => {
-    setActiveIndex(2);
-    navigate("/Archive");
-  };
-
-  const handleSearchRedirect = () => {
-    setActiveIndex(1);
-  };
-
-  const handleTagsRedirect = () => {
-    setActiveIndex(3);
-  };
-
-  const handleSettingsRedirect = () => {
-    setActiveIndex(4);
+  const handleRedirect = (index, path) => {
+    setActiveIndex(index);
+    navigate(path);
   };
 
   return (
@@ -40,15 +45,16 @@ export const Toolbar = () => {
       <Icon
         source={homeicon}
         isActive={activeIndex === 0}
-        onPress={handleHomeRedirect}
+        onPress={() => handleRedirect(0, "/")}
       >
         Home
       </Icon>
       <div className="line"></div>
+
       <Icon
         source={searchicon}
         isActive={activeIndex === 1}
-        onPress={() => setActiveIndex(1)}
+        onPress={() => handleRedirect(1, "/Search")}
       >
         Search
       </Icon>
@@ -57,7 +63,7 @@ export const Toolbar = () => {
       <Icon
         source={archiveicon}
         isActive={activeIndex === 2}
-        onPress={handleArchiveRedirect}
+        onPress={() => handleRedirect(2, "/Archive")}
       >
         Archived
       </Icon>
@@ -66,7 +72,7 @@ export const Toolbar = () => {
       <Icon
         source={tagicon}
         isActive={activeIndex === 3}
-        onPress={() => setActiveIndex(3)}
+        onPress={() => handleRedirect(3, "/Tags")}
       >
         Tags
       </Icon>
@@ -75,7 +81,7 @@ export const Toolbar = () => {
       <Icon
         source={settingicon}
         isActive={activeIndex === 4}
-        onPress={() => setActiveIndex(4)}
+        onPress={() => handleRedirect(4, "/Settings")}
       >
         Settings
       </Icon>

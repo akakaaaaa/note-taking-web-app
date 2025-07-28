@@ -3,9 +3,10 @@ import searchIcon from "../assets/images/icon-search.svg";
 import settingsIcon from "../assets/images/icon-settings.svg";
 import { useState } from "react";
 import logo from "../assets/images/logo.svg";
+import { useUser } from "../store/userContext";
 
 export const Searchbar = ({}) => {
-  const [searchQueries, setSearchQueries] = useState("");
+  const { filterWord, setFilterWord } = useUser();
 
   return (
     <div className="header">
@@ -22,9 +23,9 @@ export const Searchbar = ({}) => {
             name="searchbar"
             id=""
             placeholder="Search by title, content, or tags..."
-            value={searchQueries}
+            value={filterWord}
             onChange={(e) => {
-              setSearchQueries(e.target.value);
+              setFilterWord(e.target.value);
             }}
           />
         </div>

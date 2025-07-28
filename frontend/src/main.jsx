@@ -11,6 +11,6 @@ createRoot(document.getElementById("root")).render(
   </UserProvider>
 );
 
-// user context is created, tags are dynamic
-// 1. i have to fix navigation bug about selecting pages using navbar in mobile & tablet versions. depending on location.pathname
-// 2. i have to make search bar dynamic, so it filteres notes.
+// navigation bug is fixed, search bar is dynamic on desktop version
+
+// 1. have to make search page for mobile and tablet versions.

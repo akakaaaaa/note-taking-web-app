@@ -6,6 +6,7 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [selectedTag, setSelectedTag] = useState(null);
+  const [filterWord, setFilterWord] = useState("");
 
   const filteredNotes = selectedTag
     ? notes.filter((note) => note.tags.includes(selectedTag))
@@ -24,6 +25,8 @@ export const UserProvider = ({ children }) => {
         setSelectedTag,
         filteredNotes,
         filteredArchivedNotes,
+        setFilterWord,
+        filterWord,
       }}
     >
       {children}
