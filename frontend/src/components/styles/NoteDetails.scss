@@ -1,15 +1,15 @@
 @use "../../styles/variables" as *;
 
 .note-details-container {
-  padding: 20px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  height: 100vh;
   box-sizing: border-box;
-  height: 697px;
-  border-right: 1px solid $neutral-200;
-  font-family: $font-family-inter !important;
+  padding: 20px 24px;
   background-color: white;
+  font-family: $font-family-inter !important;
+  border-right: 1px solid $neutral-200;
+  gap: 16px;
 
   .line,
   .line-app {
@@ -17,11 +17,16 @@
   }
 
   .note-details {
-    width: 100%;
-    height: min-content;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .note-details {
+    width: 100%;
+    flex: 0 0 auto;
   }
 
   .note-details-title textarea {
@@ -102,12 +107,13 @@
   }
 
   .note-content {
-    width: 100%;
-    white-space: pre-line;
-    height: 567px;
-    resize: none;
+    flex: 1 1 auto;
+    min-height: 200px;
+    max-height: 80vh;
+    overflow-y: auto;
     border: none;
     outline: none;
+    resize: none;
     font-family: $font-family-inter;
     font-size: 14px;
 
@@ -203,7 +209,7 @@
     .note-content {
       overflow-y: scroll;
       height: 100%;
-      padding-bottom: 80px;
+      margin-bottom: 80px;
     }
     .note-details-buttons-container {
       display: none;

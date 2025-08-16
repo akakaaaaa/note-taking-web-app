@@ -11,6 +11,4 @@ createRoot(document.getElementById("root")).render(
   </UserProvider>
 );
 
-// navigation bug is fixed, search bar is dynamic on desktop version
-
 // 1. have to make search page for mobile and tablet versions.
