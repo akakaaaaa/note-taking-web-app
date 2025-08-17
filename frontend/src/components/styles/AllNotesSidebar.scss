@@ -8,6 +8,18 @@
   padding: 20px 16px 0px 32px;
   box-sizing: border-box;
   border-right: 1px solid $neutral-200;
+  background-color: white;
+
+  .note-hint p {
+    color: $neutral-700;
+    font-size: $font-size-small;
+    line-height: 130%;
+    letter-spacing: -0.2px;
+  }
+
+  .page-hint-mobile {
+    display: none;
+  }
 
   .app-all-notes-p {
     display: none;
@@ -69,6 +81,14 @@
     border-top-right-radius: 18px;
     border-top-left-radius: 18px;
     background-color: white;
+
+    .page-hint-mobile {
+      display: block;
+      font-size: $font-size-large;
+      font-weight: 700;
+      line-height: 120%;
+      letter-spacing: -0.5px;
+    }
 
     .app-all-notes-p {
       display: block;

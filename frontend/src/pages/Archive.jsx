@@ -6,10 +6,11 @@ import { RightSidebar } from "../components/RightSidebar";
 import { useState } from "react";
 import { useEffect } from "react";
 import useWindowWidth from "../utils/useWindowWidth";
-import archivedNotes from "../utils/archivedNotes";
+import { useUser } from "../store/userContext";
 
 export const Archive = () => {
   const [selectedNote, setSelectedNote] = useState(null);
+  const { archivedNotes } = useUser();
 
   const width = useWindowWidth();
   const isMobileOrTablet = width <= 1024;

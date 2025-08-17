@@ -3,31 +3,28 @@ import logo from "../assets/images/logo.svg";
 import archiveIcon from "../assets/images/icon-archive.svg";
 import homeIcon from "../assets/images/icon-home.svg";
 import arrowRightIcon from "../assets/images/icon-chevron-right.svg";
-import { Tag } from "./Tag";
+
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { useUser } from "../store/userContext";
+import { TagsContainer } from "./TagsContainer";
 
 export const Sidebar = ({ tags }) => {
-  const { selectedTag, setSelectedTag } = useUser();
+  const { selectedTag, setSelectedTag, setSelectedPage } = useUser();
 
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleAllNotesClick = () => {
     setSelectedTag(null);
+    setSelectedPage("All notes");
     navigate("/");
   };
 
   const handleArchivedNotesClick = () => {
     setSelectedTag(null);
+    setSelectedPage("Archived Notes");
     navigate("/Archive");
   };
-
-  function handleTagClick(tag) {
-    setSelectedTag(tag);
-    console.log(tag);
-  }
 
   return (
     <div className="sidebar">
@@ -38,7 +35,7 @@ export const Sidebar = ({ tags }) => {
         <div className="note-navigation">
           <button
             className={`all-notes-container ${
-              location.pathname === "/" ? "active" : ""
+              location.pathname === "/" && !selectedTag ? "active" : ""
             }`}
             onClick={handleAllNotesClick}
           >
@@ -49,7 +46,7 @@ export const Sidebar = ({ tags }) => {
 
           <button
             className={`archived-notes-container ${
-              location.pathname === "/Archive" ? "active" : ""
+              location.pathname === "/Archive" && !selectedTag ? "active" : ""
             }`}
             onClick={handleArchivedNotesClick}
           >
@@ -63,17 +60,7 @@ export const Sidebar = ({ tags }) => {
           <p>Tags</p>
         </div>
 
-        <div className="tags-container">
-          {tags.map((tag) => (
-            <Tag
-              key={tag}
-              onClick={() => handleTagClick(tag)}
-              isActive={selectedTag === tag}
-            >
-              {tag}
-            </Tag>
-          ))}
-        </div>
+        <TagsContainer tags={tags} />
       </div>
     </div>
   );

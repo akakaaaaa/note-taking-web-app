@@ -7,10 +7,21 @@ import { useUser } from "../store/userContext";
 export const AllNotesSidebar = ({ selectedNote, onNoteSelect }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { filteredNotes, filteredArchivedNotes, filterWord } = useUser();
+  const {
+    filteredNotes,
+    filteredArchivedNotes,
+    filterWord,
+    selectedTag,
+    filteredAllNotes,
+    selectedPage,
+  } = useUser();
 
   const isPageArchived = location.pathname === "/Archive";
-  let notesToShow = isPageArchived ? filteredArchivedNotes : filteredNotes;
+  let notesToShow = isPageArchived
+    ? filteredArchivedNotes
+    : selectedTag
+    ? filteredAllNotes
+    : filteredNotes;
 
   if (filterWord.trim() !== "") {
     notesToShow = notesToShow.filter(
@@ -32,6 +43,22 @@ export const AllNotesSidebar = ({ selectedNote, onNoteSelect }) => {
       <div className="btn-container">
         <PrimaryButton onClick={handleNewNote}>+ Create New Note</PrimaryButton>
       </div>
+
+      {selectedTag ? (
+        <h2 className="selected-tag-hint">
+          Notes Tagged: <span>{selectedTag}</span>
+        </h2>
+      ) : (
+        <h2 className="searchbar-h2">
+          {selectedPage ? selectedPage : "All notes"}
+        </h2>
+      )}
+
+      {selectedTag && (
+        <div className="note-hint">
+          <p> All notes with the ”{selectedTag}” tag are shown here.</p>
+        </div>
+      )}
 
       {isPageArchived && (
         <p className="archive-notes">

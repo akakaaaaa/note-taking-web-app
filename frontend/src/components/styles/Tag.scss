@@ -1,5 +1,9 @@
 @use "../../styles/variables" as *;
 
+.line {
+  display: none;
+}
+
 .tag-container {
   color: $neutral-950;
   width: 100%;
@@ -48,5 +52,16 @@
   .tagIcon {
     filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(5000%)
       hue-rotate(200deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .tag-container {
+    color: $neutral-700;
+    font-size: $font-size-small;
+  }
+  .line {
+    display: block;
+    border-bottom: 1px solid $neutral-200;
   }
 }

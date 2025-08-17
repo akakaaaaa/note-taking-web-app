@@ -13,8 +13,12 @@
   background-color: white;
   color: $neutral-600;
   font-size: $font-size-xsmall;
-  .line {
-    border-right: 1px solid $neutral-100;
+  .toolbar-item {
+    display: flex;
+    gap: 37.5px;
+    .line {
+      border-right: 1px solid $neutral-100;
+    }
   }
   display: none;
 }

@@ -5,86 +5,74 @@ import archiveicon from "../assets/images/icon-archive.svg";
 import tagicon from "../assets/images/icon-tag.svg";
 import settingicon from "../assets/images/icon-settings.svg";
 import { Icon } from "./Icon";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useUser } from "../store/userContext";
 
 export const Toolbar = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const {
+    setSelectedTag,
+    setSelectedPage,
+    activeIndex,
+    setActiveIndex,
+    selectedTag,
+  } = useUser();
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    switch (location.pathname) {
-      case "/":
-        setActiveIndex(0);
-        break;
-      case "/Search":
-        setActiveIndex(1);
-        break;
-      case "/Archive":
-        setActiveIndex(2);
-        break;
-      case "/Tags":
-        setActiveIndex(3);
-        break;
-      case "/Settings":
-        setActiveIndex(4);
-        break;
-      default:
-        setActiveIndex(-1);
-    }
-  }, [location.pathname]);
+  const icons = [
+    { source: homeicon, label: "Home", path: "/", index: 0, page: "All Notes" },
+    { source: searchicon, label: "Search", path: "/Search", index: 1 },
+    {
+      source: archiveicon,
+      label: "Archived",
+      path: "/Archive",
+      index: 2,
+      page: "Archived Notes",
+    },
+    { source: tagicon, label: "Tags", path: "/Tags", index: 3 },
+    { source: settingicon, label: "Settings", path: "/Settings", index: 4 },
+  ];
 
-  const handleRedirect = (index, path) => {
+  useEffect(() => {
+    if (selectedTag) {
+      // If a tag is selected, don't highlight any toolbar icon
+      setActiveIndex(null);
+      return;
+    }
+
+    const match = icons.find((icon) => icon.path === location.pathname);
+    if (match) {
+      setActiveIndex(match.index);
+      if (match.page) setSelectedPage(match.page);
+    } else {
+      setActiveIndex(-1);
+    }
+  }, [location.pathname, selectedTag]);
+
+  const handleRedirect = (index, path, page) => {
     setActiveIndex(index);
+    setSelectedTag(null); // reset tag filter when navigating via toolbar
+    if (page) setSelectedPage(page);
     navigate(path);
   };
 
   return (
     <div className="toolbar-container">
-      <Icon
-        source={homeicon}
-        isActive={activeIndex === 0}
-        onPress={() => handleRedirect(0, "/")}
-      >
-        Home
-      </Icon>
-      <div className="line"></div>
+      {icons.map(({ source, label, path, index, page }, i) => (
+        <div key={index} className="toolbar-item">
+          <Icon
+            source={source}
+            isActive={activeIndex === index}
+            onPress={() => handleRedirect(index, path, page)}
+          >
+            {label}
+          </Icon>
 
-      <Icon
-        source={searchicon}
-        isActive={activeIndex === 1}
-        onPress={() => handleRedirect(1, "/Search")}
-      >
-        Search
-      </Icon>
-      <div className="line"></div>
-
-      <Icon
-        source={archiveicon}
-        isActive={activeIndex === 2}
-        onPress={() => handleRedirect(2, "/Archive")}
-      >
-        Archived
-      </Icon>
-      <div className="line"></div>
-
-      <Icon
-        source={tagicon}
-        isActive={activeIndex === 3}
-        onPress={() => handleRedirect(3, "/Tags")}
-      >
-        Tags
-      </Icon>
-      <div className="line"></div>
-
-      <Icon
-        source={settingicon}
-        isActive={activeIndex === 4}
-        onPress={() => handleRedirect(4, "/Settings")}
-      >
-        Settings
-      </Icon>
+          {/* vertical line between icons, except last */}
+          {i < icons.length - 1 && <div className="line"></div>}
+        </div>
+      ))}
     </div>
   );
 };

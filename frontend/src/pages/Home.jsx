@@ -5,11 +5,12 @@ import { NoteDetails } from "../components/NoteDetails";
 import { RightSidebar } from "../components/RightSidebar";
 import { useState } from "react";
 import { useEffect } from "react";
-import notes from "../utils/notes";
 import useWindowWidth from "../utils/useWindowWidth";
+import { useUser } from "../store/userContext";
 
 export const Home = () => {
   const [selectedNote, setSelectedNote] = useState(null);
+  const { notes } = useUser();
 
   const width = useWindowWidth();
   const isMobileOrTablet = width <= 1024;

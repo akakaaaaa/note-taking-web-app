@@ -11,6 +11,17 @@
   border-bottom: 1px solid $neutral-300;
   box-sizing: border-box;
 
+  .selected-tag-hint {
+    color: $neutral-600;
+    font-size: $font-size-large;
+    line-height: 120%;
+    letter-spacing: -0.5px;
+
+    span {
+      color: $neutral-950;
+    }
+  }
+
   .tablet-icon {
     display: none;
   }
@@ -96,6 +107,10 @@
   .header {
     border-bottom: none;
     background-color: $neutral-100;
+
+    .selected-tag-hint {
+      display: none;
+    }
 
     .searchbar-h2 {
       display: none;

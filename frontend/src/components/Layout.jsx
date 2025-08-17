@@ -8,24 +8,12 @@ import { useUser } from "../store/userContext";
 import { useLocation } from "react-router-dom";
 
 export const Layout = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const { notes, archivedNotes } = useUser();
-
-  const allTags = [];
-
-  location.pathname === "/Archive"
-    ? archivedNotes.forEach((note) => allTags.push(...note.tags))
-    : notes.forEach((note) => allTags.push(...note.tags));
-
-  notes.forEach((note) => allTags.push(...note.tags));
-  const uniqueRegularTags = [...new Set(allTags)];
+  const { tags } = useUser();
 
   return (
     <div className="app-layout">
       <div className="searchbar-container">
-        <Sidebar tags={uniqueRegularTags} />
+        <Sidebar tags={tags} />
       </div>
       <div className="page-content">
         <Outlet />

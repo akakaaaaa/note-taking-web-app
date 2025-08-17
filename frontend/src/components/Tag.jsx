@@ -4,15 +4,18 @@ import arrowIcon from "../assets/images/icon-chevron-right.svg";
 
 export const Tag = ({ children, isActive, onClick }) => {
   return (
-    <div
-      className={`tag-container ${isActive ? "active" : ""}`}
-      onClick={onClick}
-    >
-      <img src={tagIcon} alt="" className="tagIcon" />
-      <p className="tag-p">{children}</p>
-      <div className="arrowContainer">
-        <img src={arrowIcon} alt="" />
+    <>
+      <div
+        className={`tag-container ${isActive ? "active" : ""}`}
+        onClick={onClick}
+      >
+        <img src={tagIcon} alt="" className="tagIcon" />
+        <p className="tag-p">{children}</p>
+        <div className="arrowContainer">
+          <img src={arrowIcon} alt="" />
+        </div>
       </div>
-    </div>
+      <div className="line"></div>
+    </>
   );
 };

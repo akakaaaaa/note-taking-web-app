@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useMemo, useEffect } from "react";
 import archivedNotes from "../utils/archivedNotes.js";
 import notes from "../utils/notes.js";
 
@@ -7,7 +7,16 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [selectedTag, setSelectedTag] = useState(null);
   const [filterWord, setFilterWord] = useState("");
+  const [selectedPage, setSelectedPage] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  useEffect(() => {
+    if (location.pathname === "/Archive") setSelectedPage("Archived Notes");
+    else setSelectedPage("All Notes");
+    setFilterWord("");
+  }, [location.pathname]);
+
+  // Filtered notes separately
   const filteredNotes = selectedTag
     ? notes.filter((note) => note.tags.includes(selectedTag))
     : notes;
@@ -15,6 +24,18 @@ export const UserProvider = ({ children }) => {
   const filteredArchivedNotes = selectedTag
     ? archivedNotes.filter((note) => note.tags.includes(selectedTag))
     : archivedNotes;
+
+  // Combined filtered array
+  const filteredAllNotes = useMemo(
+    () => [...filteredNotes, ...filteredArchivedNotes],
+    [filteredNotes, filteredArchivedNotes]
+  );
+
+  // Compute unique tags
+  const tags = useMemo(() => {
+    const allTags = [...notes, ...archivedNotes].flatMap((note) => note.tags);
+    return [...new Set(allTags)];
+  }, []);
 
   return (
     <UserContext.Provider
@@ -25,8 +46,14 @@ export const UserProvider = ({ children }) => {
         setSelectedTag,
         filteredNotes,
         filteredArchivedNotes,
-        setFilterWord,
+        filteredAllNotes,
         filterWord,
+        setFilterWord,
+        tags,
+        selectedPage,
+        setSelectedPage,
+        activeIndex,
+        setActiveIndex,
       }}
     >
       {children}

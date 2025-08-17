@@ -6,13 +6,22 @@ import logo from "../assets/images/logo.svg";
 import { useUser } from "../store/userContext";
 
 export const Searchbar = ({}) => {
-  const { filterWord, setFilterWord } = useUser();
+  const { filterWord, setFilterWord, selectedPage, selectedTag } = useUser();
 
   return (
     <div className="header">
       <img className="tablet-icon" src={logo} alt="" />
 
-      <h2 className="searchbar-h2">All Notes</h2>
+      {selectedTag ? (
+        <h2 className="selected-tag-hint">
+          Notes Tagged: <span>{selectedTag}</span>
+        </h2>
+      ) : (
+        <h2 className="searchbar-h2">
+          {selectedPage ? selectedPage : "All notes"}
+        </h2>
+      )}
+
       <div className="searchbar-container">
         <div className="search-input-container">
           <img src={searchIcon} alt="" className="searchIcon" />
