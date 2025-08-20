@@ -54,13 +54,13 @@
     padding-left: 32px;
     padding-top: 24px;
     height: calc(100vh - 81px);
-    padding-bottom: 80px;
     border-top-right-radius: 18px;
     border-top-left-radius: 18px;
     background-color: white;
-    padding-bottom: 81px;
+    padding-bottom: 65px;
     .tags-wrapper {
       gap: 4px;
+      padding-bottom: 10px;
     }
 
     .tags-container-title {

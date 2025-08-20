@@ -10,6 +10,10 @@
   border-right: 1px solid $neutral-200;
   background-color: white;
 
+  .selected-tag-hint {
+    display: none;
+  }
+
   .note-hint p {
     color: $neutral-700;
     font-size: $font-size-small;
@@ -77,10 +81,18 @@
     padding-left: 32px;
     padding-top: 24px;
     height: calc(100vh - 81px);
-    padding-bottom: 80px;
+    padding-bottom: 65px;
     border-top-right-radius: 18px;
     border-top-left-radius: 18px;
     background-color: white;
+    .selected-tag-hint {
+      display: block;
+      color: $neutral-600;
+
+      span {
+        color: $neutral-950;
+      }
+    }
 
     .page-hint-mobile {
       display: block;

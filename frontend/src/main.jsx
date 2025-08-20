@@ -10,5 +10,3 @@ createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </UserProvider>
 );
-
-// 1. have to make search page for mobile and tablet versions.

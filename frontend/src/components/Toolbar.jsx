@@ -52,7 +52,7 @@ export const Toolbar = () => {
 
   const handleRedirect = (index, path, page) => {
     setActiveIndex(index);
-    setSelectedTag(null); // reset tag filter when navigating via toolbar
+    setSelectedTag(null);
     if (page) setSelectedPage(page);
     navigate(path);
   };
