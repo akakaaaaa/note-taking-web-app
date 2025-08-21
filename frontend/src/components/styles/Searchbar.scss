@@ -1,127 +1,70 @@
 @use "../../styles/variables" as *;
 
-.header {
+.searchbar-container {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding: 0px 32px 0px 32px;
-  height: 81px;
+  gap: 16px;
   align-items: center;
-  background-color: $neutral-0;
-  border-bottom: 1px solid $neutral-300;
-  box-sizing: border-box;
+}
 
-  .selected-tag-hint {
+.searchIcon {
+  filter: brightness(0) saturate(100%) invert(51%) sepia(5%) saturate(235%)
+    hue-rotate(200deg);
+}
+
+.settingsIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(51%) sepia(5%) saturate(235%)
+    hue-rotate(200deg);
+}
+
+.search-input-container {
+  height: min-content;
+  display: flex;
+  align-items: center;
+  border: 1px solid $neutral-300;
+  border-radius: 8px;
+  padding: 8px 12px 8px 12px;
+  gap: 16px;
+  width: 300px;
+
+  .inputbar {
+    border: none;
+    height: 100%;
+    width: 100%;
     color: $neutral-600;
-    font-size: $font-size-large;
-    line-height: 120%;
-    letter-spacing: -0.5px;
 
-    span {
-      color: $neutral-950;
+    &:focus {
+      outline: none;
     }
-  }
 
-  .tablet-icon {
-    display: none;
-  }
-
-  .searchbar-container {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .searchIcon {
-    filter: brightness(0) saturate(100%) invert(51%) sepia(5%) saturate(235%)
-      hue-rotate(200deg);
-  }
-
-  .settingsIcon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    filter: brightness(0) saturate(100%) invert(51%) sepia(5%) saturate(235%)
-      hue-rotate(200deg);
-  }
-
-  .search-input-container {
-    height: min-content;
-    display: flex;
-    align-items: center;
-    border: 1px solid $neutral-300;
-    border-radius: 8px;
-    padding: 8px 12px 8px 12px;
-    gap: 16px;
-    width: 300px;
-
-    .inputbar {
-      border: none;
-      height: 100%;
-      width: 100%;
-      color: $neutral-600;
-
-      &:focus {
-        outline: none;
-      }
-
-      &::placeholder {
-        width: max-content;
-      }
+    &::placeholder {
+      width: max-content;
     }
-  }
-
-  .settingsicon-container {
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .search-text-tablet {
-    display: none;
   }
 }
 
+.settingsicon-container {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-text-tablet {
+  display: none;
+}
+
 @media (max-width: 1024px) and (min-width: 768px) {
-  .header {
-    border-bottom: none;
-    background-color: $neutral-100;
-
-    .searchbar-h2 {
-      display: none;
-    }
-
-    .searchbar-container {
-      display: none !important;
-    }
-
-    .tablet-icon {
-      display: inline;
-    }
+  .searchbar-container {
+    display: none !important;
   }
 }
 
 @media (max-width: 1024px) {
-  .header {
-    border-bottom: none;
-    background-color: $neutral-100;
-
-    .selected-tag-hint {
-      display: none;
-    }
-
-    .searchbar-h2 {
-      display: none;
-    }
-
-    .searchbar-container {
-      display: none !important;
-    }
-
-    .tablet-icon {
-      display: inline;
-    }
+  .searchbar-container {
+    display: none !important;
   }
 }

@@ -1,5 +1,5 @@
 import "./styles/Home.scss";
-import { Searchbar } from "../components/Searchbar";
+import { Header } from "../components/Header";
 import { AllNotesSidebar } from "../components/AllNotesSidebar";
 import { NoteDetails } from "../components/NoteDetails";
 import { RightSidebar } from "../components/RightSidebar";
@@ -21,8 +21,8 @@ export const Home = () => {
 
   return (
     <div className="homepage">
-      <div className="searchbar">
-        <Searchbar />
+      <div className="header-container">
+        <Header />
       </div>
       <div className="allnotessidebar">
         <AllNotesSidebar

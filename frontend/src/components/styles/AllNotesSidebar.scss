@@ -10,6 +10,11 @@
   border-right: 1px solid $neutral-200;
   background-color: white;
 
+  .selected-tag-hint,
+  .searchbar-h2 {
+    display: none;
+  }
+
   .selected-tag-hint {
     display: none;
   }
@@ -33,6 +38,9 @@
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 
     &::-webkit-scrollbar {
       width: 3px;
@@ -92,6 +100,11 @@
       span {
         color: $neutral-950;
       }
+    }
+
+    .selected-tag-hint,
+    .searchbar-h2 {
+      display: block;
     }
 
     .page-hint-mobile {

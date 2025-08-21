@@ -12,7 +12,7 @@ export const Layout = () => {
 
   return (
     <div className="app-layout">
-      <div className="searchbar-container">
+      <div className="sidebar-container">
         <Sidebar tags={tags} />
       </div>
       <div className="page-content">

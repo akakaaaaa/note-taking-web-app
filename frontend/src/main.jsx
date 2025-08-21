@@ -10,3 +10,7 @@ createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </UserProvider>
 );
+
+// 1. create proper SearchBar component
+// 2. create searchPage
+// 3. add gap to AllNotesContainer
