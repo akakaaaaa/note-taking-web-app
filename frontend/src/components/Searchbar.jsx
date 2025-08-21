@@ -7,6 +7,7 @@ export const Searchbar = () => {
   const { filterWord, setFilterWord } = useUser();
   return (
     <div className="searchbar-container">
+      <h2 className="searchbar-container-title">Search</h2>
       <div className="search-input-container">
         <img src={searchIcon} alt="" className="searchIcon" />
         <p className="search-text-tablet">Search</p>

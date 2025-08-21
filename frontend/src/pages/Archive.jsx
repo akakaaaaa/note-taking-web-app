@@ -9,8 +9,7 @@ import useWindowWidth from "../utils/useWindowWidth";
 import { useUser } from "../store/userContext";
 
 export const Archive = () => {
-  const [selectedNote, setSelectedNote] = useState(null);
-  const { archivedNotes } = useUser();
+  const { selectedNote, setSelectedNote, archivedNotes } = useUser();
 
   const width = useWindowWidth();
   const isMobileOrTablet = width <= 1024;
@@ -25,12 +24,7 @@ export const Archive = () => {
         <Header />
       </div>
       <div className="allnotessidebar">
-        <AllNotesSidebar
-          notes={archivedNotes}
-          selectedNote={selectedNote}
-          onNoteSelect={setSelectedNote}
-          archived={true}
-        />
+        <AllNotesSidebar />
       </div>
       <div className="notedetails">
         {selectedNote &&

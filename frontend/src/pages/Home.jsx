@@ -3,21 +3,16 @@ import { Header } from "../components/Header";
 import { AllNotesSidebar } from "../components/AllNotesSidebar";
 import { NoteDetails } from "../components/NoteDetails";
 import { RightSidebar } from "../components/RightSidebar";
-import { useState } from "react";
+
 import { useEffect } from "react";
 import useWindowWidth from "../utils/useWindowWidth";
 import { useUser } from "../store/userContext";
 
 export const Home = () => {
-  const [selectedNote, setSelectedNote] = useState(null);
-  const { notes } = useUser();
+  const { selectedNote, setSelectedNote } = useUser();
 
   const width = useWindowWidth();
   const isMobileOrTablet = width <= 1024;
-
-  useEffect(() => {
-    setSelectedNote(null);
-  }, [notes]);
 
   return (
     <div className="homepage">
@@ -25,11 +20,7 @@ export const Home = () => {
         <Header />
       </div>
       <div className="allnotessidebar">
-        <AllNotesSidebar
-          notes={notes}
-          selectedNote={selectedNote}
-          onNoteSelect={setSelectedNote}
-        />
+        <AllNotesSidebar />
       </div>
       <div className="notedetails">
         {selectedNote &&

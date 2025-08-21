@@ -1,0 +1,43 @@
+@use "../../styles/variables" as *;
+
+.notes-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $neutral-300;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $neutral-300;
+  }
+}
+
+.notewrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.line {
+  border-bottom: 1px solid $neutral-200;
+  padding-right: 20px;
+}
+
+@media (max-width: 1024px) {
+  .notes-container {
+    padding-right: 10px;
+  }
+}

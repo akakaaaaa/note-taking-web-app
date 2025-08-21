@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Searchbar } from "../components/Searchbar";
+import { Header } from "../components/Header";
 import { TagsContainer } from "../components/TagsContainer";
 import { useUser } from "../store/userContext";
 import "./styles/TagsPage.scss";
@@ -26,8 +26,8 @@ export const TagsPage = () => {
 
   return (
     <div className="tagspage">
-      <div className="searchbar">
-        <Searchbar />
+      <div className="header">
+        <Header />
       </div>
       <TagsContainer tags={tags} />
     </div>

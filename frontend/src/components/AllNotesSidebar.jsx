@@ -1,10 +1,11 @@
 import "./styles/AllNotesSidebar.scss";
 import { PrimaryButton } from "./PrimaryButton";
-import { Note } from "./Note";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../store/userContext";
+import { AllNotesContainer } from "./AllNotesContainer";
+import { useEffect } from "react";
 
-export const AllNotesSidebar = ({ selectedNote, onNoteSelect }) => {
+export const AllNotesSidebar = ({}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const {
@@ -14,7 +15,14 @@ export const AllNotesSidebar = ({ selectedNote, onNoteSelect }) => {
     selectedTag,
     filteredAllNotes,
     selectedPage,
+    notes,
+    setSelectedNote,
+    selectedNote,
   } = useUser();
+
+  useEffect(() => {
+    setSelectedNote(null);
+  }, [notes]);
 
   const isPageArchived = location.pathname === "/Archive";
   let notesToShow = isPageArchived
@@ -82,18 +90,11 @@ export const AllNotesSidebar = ({ selectedNote, onNoteSelect }) => {
           <div className="line"></div>
         </div>
       ) : (
-        <div className="notes-container">
-          {notesToShow.map((note) => (
-            <div
-              className="notewrapper"
-              key={note.id}
-              onClick={() => onNoteSelect(note)}
-            >
-              <Note note={note} isSelected={selectedNote?.id === note.id} />
-              <div className="line"></div>
-            </div>
-          ))}
-        </div>
+        <AllNotesContainer
+          notesToShow={notesToShow}
+          selectedNote={selectedNote}
+          onNoteSelect={setSelectedNote}
+        />
       )}
     </div>
   );

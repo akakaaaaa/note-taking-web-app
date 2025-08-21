@@ -34,41 +34,11 @@
     display: none;
   }
 
-  .notes-container {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-    &::-webkit-scrollbar {
-      width: 3px;
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: $neutral-300;
-      border-radius: 10px;
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: $neutral-300;
-    }
-  }
-
   .line {
     border-bottom: 1px solid $neutral-200;
     padding-right: 20px;
   }
 
-  .notewrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    width: 100%;
-  }
   .archive-notes {
     color: $neutral-700;
     letter-spacing: -0.2px;
@@ -123,9 +93,7 @@
       line-height: 120%;
       letter-spacing: -0.5px;
     }
-    .notes-container {
-      padding-right: 10px;
-    }
+
     .btn-container {
       height: 64px;
       display: flex;

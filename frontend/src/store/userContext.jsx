@@ -9,6 +9,7 @@ export const UserProvider = ({ children }) => {
   const [filterWord, setFilterWord] = useState("");
   const [selectedPage, setSelectedPage] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [selectedNote, setSelectedNote] = useState(null);
 
   useEffect(() => {
     if (location.pathname === "/Archive") setSelectedPage("Archived Notes");
@@ -54,6 +55,8 @@ export const UserProvider = ({ children }) => {
         setSelectedPage,
         activeIndex,
         setActiveIndex,
+        selectedNote,
+        setSelectedNote,
       }}
     >
       {children}
