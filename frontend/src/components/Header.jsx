@@ -13,7 +13,11 @@ export const Header = ({}) => {
 
       <h2
         className={
-          selectedTag && !filterWord ? "selected-tag-hint" : "searchbar-h2"
+          selectedTag && !filterWord
+            ? "selected-tag-hint"
+            : filterWord
+            ? "filter-word-hint"
+            : "header-h2"
         }
       >
         {filterWord ? (

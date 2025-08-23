@@ -23,6 +23,13 @@ export const Searchbar = () => {
           }}
         />
       </div>
+      <div className="search-hint">
+        {filterWord && (
+          <p className="search-hint-p">
+            All notes matching <span>"{filterWord}"</span> are displayed below.
+          </p>
+        )}
+      </div>
       <div className="settingsicon-container">
         <img src={settingsIcon} alt="" className="settingsIcon" />
       </div>

@@ -70,7 +70,7 @@ export const Toolbar = () => {
           </Icon>
 
           {/* vertical line between icons, except last */}
-          {i < icons.length - 1 && <div className="line"></div>}
+          {i < icons.length - 1 && <div className="toolbar-line"></div>}
         </div>
       ))}
     </div>

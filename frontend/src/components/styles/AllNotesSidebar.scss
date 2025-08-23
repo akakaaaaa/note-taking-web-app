@@ -47,8 +47,19 @@
   }
 
   .newNoteA {
+    background-color: transparent;
+    border: none;
     color: $neutral-950;
     text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: $neutral-950;
+    text-decoration-thickness: 1px;
+    font-size: $font-size-small;
+    line-height: 130%;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
   }
 }
 

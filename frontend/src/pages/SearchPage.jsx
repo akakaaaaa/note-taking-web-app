@@ -8,7 +8,7 @@ import { AllNotesContainer } from "../components/AllNotesContainer";
 
 export const SearchPage = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-  const { notes, selectedNote, setSelectedNote } = useUser();
+  const { allNotes, selectedNote, setSelectedNote, filterWord } = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,15 +25,24 @@ export const SearchPage = () => {
 
   if (!isMobile) return null;
 
+  let notesToShow = allNotes;
+  if (filterWord.trim() !== "") {
+    notesToShow = notesToShow.filter(
+      (note) =>
+        note.title.toLowerCase().includes(filterWord.toLowerCase()) ||
+        note.content.toLowerCase().includes(filterWord.toLowerCase())
+    );
+  }
+
   return (
     <div className="search-page">
-      <div className="header">
+      <div className="search-page-header">
         <Header />
       </div>
       <div className="searchbar-wrapper">
         <Searchbar />
         <AllNotesContainer
-          notesToShow={notes}
+          notesToShow={notesToShow}
           selectedNote={selectedNote}
           onNoteSelect={setSelectedNote}
         />

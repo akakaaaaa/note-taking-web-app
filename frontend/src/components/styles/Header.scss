@@ -11,6 +11,14 @@
   border-bottom: 1px solid $neutral-300;
   box-sizing: border-box;
 
+  .filter-word-hint {
+    color: $neutral-600;
+
+    span {
+      color: $neutral-950;
+    }
+  }
+
   .selected-tag-hint {
     color: $neutral-600;
     font-size: $font-size-large;
@@ -89,7 +97,7 @@
     border-bottom: none;
     background-color: $neutral-100;
 
-    .searchbar-h2 {
+    .header-h2 {
       display: none;
     }
 
@@ -112,7 +120,7 @@
       display: none;
     }
 
-    .searchbar-h2 {
+    .header-h2 {
       display: none;
     }
 

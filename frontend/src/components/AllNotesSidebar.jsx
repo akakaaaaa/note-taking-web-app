@@ -79,13 +79,31 @@ export const AllNotesSidebar = ({}) => {
         <div>
           <p style={style.p}>
             {isPageArchived
-              ? "No notes have been archived yet. Move notes here for safekeeping, or "
+              ? !filterWord
+                ? "No notes have been archived yet. Move notes here for safekeeping, or "
+                : "No notes match your search. Try a different keyword or "
+              : filterWord
+              ? "No notes match your search. Try a different keyword or "
               : "You don’t have any notes yet. Start a new note to capture your thoughts and ideas."}
-            {isPageArchived && (
-              <button className="newNoteA" onClick={handleNewNote}>
+            {isPageArchived ? (
+              <span
+                className="newNoteA"
+                role="button"
+                tabIndex={0}
+                onClick={handleNewNote}
+              >
                 create a new note.
-              </button>
-            )}
+              </span>
+            ) : filterWord ? (
+              <span
+                className="newNoteA"
+                role="button"
+                tabIndex={0}
+                onClick={handleNewNote}
+              >
+                create a new note.
+              </span>
+            ) : null}
           </p>
           <div className="line"></div>
         </div>

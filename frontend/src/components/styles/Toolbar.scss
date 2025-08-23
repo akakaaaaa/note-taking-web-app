@@ -17,7 +17,7 @@
   .toolbar-item {
     display: flex;
     gap: 37.5px;
-    .line {
+    .toolbar-line {
       border-right: 1px solid $neutral-100;
     }
   }
@@ -41,7 +41,7 @@
       justify-content: center;
     }
 
-    .line {
+    .toolbar-line {
       display: none;
     }
   }

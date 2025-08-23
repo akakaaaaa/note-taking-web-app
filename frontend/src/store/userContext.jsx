@@ -14,8 +14,11 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     if (location.pathname === "/Archive") setSelectedPage("Archived Notes");
     else setSelectedPage("All Notes");
-    setFilterWord("");
+    // setFilterWord("");
   }, [location.pathname]);
+
+  // All notes combined
+  const allNotes = [...notes, ...archivedNotes];
 
   // Filtered notes separately
   const filteredNotes = selectedTag
@@ -57,6 +60,7 @@ export const UserProvider = ({ children }) => {
         setActiveIndex,
         selectedNote,
         setSelectedNote,
+        allNotes,
       }}
     >
       {children}
